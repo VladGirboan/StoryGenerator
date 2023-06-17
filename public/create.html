@@ -1,0 +1,220 @@
+<html>
+
+<head>
+    <title>TaleCraft - Crafting Unique Adventures, One Story at a Time </title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="/pop-ups.js"></script>
+
+
+</head>
+
+<body class="body">
+    <script type="module" src="/firebaseModule.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="/checkAuthentification.js"></script>
+    <div class="wrapper">
+        <div class="menu">
+            <ul>
+                <li><a href="index.html" class="home-button"><b>StoryCraft</b></a></li>
+                <li><a href="stories.html">Browse Stories</a></li>
+                <li><a href="#" id="createStoryLink">Create Story</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="#" id="loginLink" class="login-button">Login</a></li>
+                <li><a href="#" id="registerLink" class="login-button">Register</a></li>
+                <li><a href="#" id="accountLink" class="login-button">My Account</a></li>
+            </ul>
+        </div>
+        <div class="story-form">
+
+            <h2>Start generating your story now:</h2>
+            <p>Add some unique details about your child and customize the story to your likeing:</p>
+            <form id="storyForm">
+                <div class="form columns">
+                    <div class="form left">
+                        <p><strong>Details about your child:</strong></p>
+                        <p><label for="childName">Name:</label><input type="text" id="childName" placeholder="Timmy">
+                        </p>
+                        <p><label for="childAge">Child's Age:</label>
+                            <select id="childAge" name="childAge">
+                                <option value="" disabled selected>Please select</option>
+                                <!-- JavaScript loop to generate options -->
+                                <script>
+                                    for (let age = 1; age <= 14; age++) {
+                                        document.write(`<option value="${age}">${age}</option>`);
+                                    }
+                                </script>
+                            </select>
+                        </p>
+                        <p><label for="childGender">Gender:</label>
+                            <select id="childGender" name=" gender" placehoder="Select">
+                                <option value="" disabled selected>Pick one</option>
+                                <option value="boy">Boy</option>
+                                <option value="girl">Girl</option>
+                            </select>
+                        </p>
+                        <p><label for="friendName">Best friend's name:</label><input type="text" id="friendName"
+                                placeholder="Javier"></p>
+                        <p><label for="parentName">Your name:</label><input type="text" id="parentName"
+                                placeholder="Saraj">
+                        </p>
+                    </div>
+                    <div class="form right">
+                        <p><strong>Details about today's story:</strong></p>
+                        <p><label for="storySetting">Story Setting:</label>
+                            <select id="storySetting" name="storySetting">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="forest">Forest</option>
+                                <option value="mountains">Mountains</option>
+                                <option value="lake">Lake</option>
+                                <option value="beach">Beach</option>
+                                <option value="mall">Mall</option>
+                                <option value="school">School</option>
+                                <option value="castle">Castle</option>
+                                <option value="space">Space</option>
+                                <option value="underwater">Underwater</option>
+                                <option value="jungle">Jungle</option>
+                                <option value="desert">Desert</option>
+                                <option value="farm">Farm</option>
+                                <option value="zoo">Zoo</option>
+                                <option value="circus">Circus</option>
+                                <option value="island">Island</option>
+                                <option value="carnival">Carnival</option>
+                                <option value="fairytale">Fairytale land</option>
+                                <option value="city">City</option>
+                                <option value="submarine">Submarine</option>
+                                <option value="wonderland">Wonderland</option>
+                                <!-- Add more location options here -->
+                            </select>
+                        </p>
+                        <p><label for="storyStyle">Story Style:</label>
+                            <select id="storyStyle" name="storyStyle">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="adventure">Adventure</option>
+                                <option value="mystery">Mystery</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="sci-fi">Science Fiction</option>
+                                <option value="humor">Humor</option>
+                                <option value="fairytale">Fairytale</option>
+                                <option value="historical">Historical</option>
+                                <option value="superhero">Superhero</option>
+                                <option value="animal">Animal</option>
+                                <option value="magic">Magic</option>
+                                <!-- Add more story style options here -->
+                            </select>
+                        </p>
+                        <p><label for="storyLength">Story Length:</label>
+                            <select id="storyLength" name="storyLength">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="short">Short</option>
+                                <option value="medium">Medium</option>
+                                <option value="long">Long</option>
+                            </select>
+                        </p>
+                        <p><label for="storyMoral">Story Moral:</label>
+                            <select id="storyMoral" name="storyMoral">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="kindness">Kindness</option>
+                                <option value="honesty">Honesty</option>
+                                <option value="perseverance">Perseverance</option>
+                                <option value="generosity">Generosity</option>
+                                <option value="courage">Courage</option>
+                                <option value="responsibility">Responsibility</option>
+                                <option value="teamwork">Teamwork</option>
+                                <option value="respect">Respect</option>
+                                <option value="forgiveness">Forgiveness</option>
+                                <option value="imagination">Imagination</option>
+                            </select>
+                        </p>
+                        <p><label for="childInterest">Child's Interest:</label>
+                            <select id="childInterest" name="childInterest">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="animals">Animals</option>
+                                <option value="art">Art</option>
+                                <option value="music">Music</option>
+                                <option value="sports">Sports</option>
+                                <option value="reading">Reading</option>
+                                <option value="dancing">Dancing</option>
+                                <option value="cooking">Cooking</option>
+                                <option value="science">Science</option>
+                                <option value="outdoor">Outdoor activities</option>
+                                <option value="adventure">Adventure</option>
+                                <option value="fashion">Fashion</option>
+                                <option value="magic">Magic</option>
+                                <option value="technology">Technology</option>
+                                <option value="gardening">Gardening</option>
+                                <option value="puzzles">Puzzles</option>
+                                <option value="comics">Comics</option>
+                                <option value="movies">Movies</option>
+                                <option value="theater">Theater</option>
+                                <option value="exploration">Exploration</option>
+                                <option value="writing">Writing</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div class="form button">
+                        <button type="submit" id="submitStory">Work your magic!</button>
+                    </div>
+                </div>
+
+            </form>
+
+            <p id="storyOutput"></p>
+
+        </div>
+    </div>
+    <!-- Update the form submit event handler -->
+<script>
+    function handleSubmit(event) {
+      event.preventDefault();
+  
+      // Retrieve form values
+      const childName = document.getElementById('childName').value || "[_____]";
+      const childAge = document.getElementById('childAge').value || "[_____]";
+      const childGender = document.getElementById('childGender').value || "[_____]";
+      const friendName = document.getElementById('friendName').value || "[_____]";
+      const parentName = document.getElementById('parentName').value || "[_____]";
+      const storySetting = document.getElementById('storySetting').value || "[_____]";
+      const storyStyle = document.getElementById('storyStyle').value || "[_____]";
+      const storyLength = document.getElementById('storyLength').value || "[_____]";
+      const storyMoral = document.getElementById('storyMoral').value || "[_____]";
+      const childInterest = document.getElementById('childInterest').value || "[_____]";
+  
+      // Create an object with the form data
+      const formData = {
+        childName,
+        childAge,
+        childGender,
+        friendName,
+        parentName,
+        storySetting,
+        storyStyle,
+        storyLength,
+        storyMoral,
+        childInterest
+      };
+  
+      // Send a POST request to the server-side endpoint
+      fetch('/submitForm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+        .then(response => response.text())
+        .then(promptMessage => {
+          // Display the prompt message
+          document.getElementById('storyOutput').textContent = promptMessage;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+  
+    // Add an event listener to the form submit event
+    document.getElementById('storyForm').addEventListener('submit', handleSubmit);
+  </script>
+  <script src="/menu.js"></script>
+  
+</body>

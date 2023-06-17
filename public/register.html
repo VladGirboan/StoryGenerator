@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="styles.css">
+
+<div id="registerPopup" class="popup">
+    <div class="popup-content">
+        <button id="closeButton" class="close-button" onclick="closeModal()">&times;</button>
+        <h2>Register</h2>
+        <form id="registerForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" minlength="6" required>
+
+            <button class="form button" type="submit">Register</button>
+        </form>
+        <p class="error" id="registerError"></p>
+    </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script>
+    // Replace the configuration object with your own Firebase project's configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCZaHRO46F48RY27YAY4xBC-_ZtOy2Pjto",
+        authDomain: "storycraft-78d71.firebaseapp.com",
+        projectId: "storycraft-78d71",
+        storageBucket: "storycraft-78d71.appspot.com",
+        messagingSenderId: "790503326677",
+        appId: "1:790503326677:web:a3ee598f0b933365c6335c",
+        measurementId: "G-YHZ9BMEPFH"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Get references to the email and password input fields
+    var emailInput = document.getElementById("email");
+    var passwordInput = document.getElementById("password");
+
+    // Get references to the register and login forms
+    var registerForm = document.getElementById("registerForm");
+    var loginForm = document.getElementById("loginForm");
+
+    // Register form submit event handler
+    registerForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        var email = emailInput.value;
+        var password = passwordInput.value;
+
+        if (password.length < 6) {
+            console.log("Registration failed: Password should be at least 6 characters");
+            return;
+        }
+
+        console.log("Attempting registration...");
+
+        // Create a new user with the provided email and password
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then(function(userCredential) {
+                console.log("Registration successful");
+                closeModal(); // Close the popup window
+                // Registration successful, you can do something here like redirecting to a different page
+            })
+            .catch(function(error) {
+                console.log("Registration failed: " + error);
+                // Registration failed, display the error message
+                var errorMessage = error.message;
+                console.log("Registration failed: " + errorMessage);
+            });
+    });
+
+    function closeModal() {
+        // Send a custom event to the parent window indicating the modal should be closed
+        window.parent.postMessage("closeModal", "*");
+    }
+</script>

@@ -1,0 +1,258 @@
+
+@font-face {
+    font-family: 'HennyPenny';
+    src: url('fonts/HennyPenny-Regular.ttf') format('truetype');
+    /* Add more font properties if needed, such as font-weight and font-style */
+  }
+  
+@font-face {
+    font-family: 'BLKCHCRY';
+    src: url('fonts/BLKCHCRY.ttf') format('truetype');
+    /* Add more font properties if needed, such as font-weight and font-style */
+  }
+
+.body{
+    text-align: center;
+    background-color: #3C254D99;
+    font-family: BLKCHCRY;
+    margin:0px;
+
+}
+.hero {
+    background-image: url("./Untitled design.png");
+    
+    background-size: cover;
+    color:#BBACC1;
+    width:100%;
+    height:100%;
+    margin:0px;
+    font-size:22px;
+}
+.menu {
+    padding: 0px;
+        position: sticky;
+    top:0;
+    background-color: #57879b83;
+    width:100%;
+    font-size: 20px; 
+    line-height: 26px; 
+    box-shadow: #2e3031 0px 2px 5px;  
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    display: inline;
+}
+
+.menu ul li a {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color:#BBACC1;
+    margin-top:10px;
+}
+
+.menu ul li a:hover {
+    color: #f8f8f8;
+}
+.home-button {
+    font-size:26px; 
+    font-family: HennyPenny; 
+    text-shadow: #000 1px 1px 2px;
+    float: left;
+    
+}
+.login-button {
+    float: right;
+    
+}
+.hero h1{
+    text-shadow: #3C254D 1px 1px 5px;
+    font-family: HennyPenny;
+    font-size: 72px;
+    margin:0px;
+    padding:40px 20px 0px 20px;
+}
+.hero h2{
+    text-shadow: #3C254D 1px 1px 5px;
+    font-family: HennyPenny;
+    font-size: 34px;
+    margin:0px;
+    padding: 0px 20px 0px 20px;
+}
+.hero p{
+    padding: 30px 100px;
+    font-size: 26px;
+    
+}
+
+.story-form {
+    padding:110px;
+    color:#BBACC1;
+    
+}
+.wrapper {
+  background-image: url("./Untitled design.png");
+    background-size: cover;
+    height: 100%;
+    width:100%;
+}
+.form {
+    text-align: center;
+}
+.columns {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+    justify-content: space-between; /* Create space between columns */
+    background-color: #797bb454;
+    padding:0px 20px;
+    box-shadow: #242424 0px 3px 6px;
+
+}
+.left {
+    
+    width:48%;
+    
+}
+.right{
+    
+    width: 48%;
+    
+}
+.button {
+    text-align: center;
+    width: 100%; /* Add width to the button container */
+    margin: 20px; /* Add some spacing between columns and button */
+}
+input, select{
+    background-color:#BBACC1;
+    color:#3C254D;
+    padding:5px;
+    border-radius: 4px;
+    border: #999 1px solid;
+}
+.button button {
+    display: block; /* Make the button a block element */
+    margin: 0 auto; /* Center the button horizontally */
+    font-size: 18px;
+    padding: 8px 30px;
+    font-family: HennyPenny;
+    font-weight: 900;
+    border-radius:10px;
+    border:#7f5c99 1px solid;
+    background-color: #3c254dc2;
+    color: #BBACC1; 
+}
+.h1 {
+    font-size: 40px;
+}
+.form p{
+    display:grid;
+    grid-template-columns: minmax(120px, max-content) 1fr;
+    
+}
+.form strong{
+  font-size: 20px;
+}
+label {
+    text-align: left;
+    font-size: 16px;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fafafa;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .popup-content {
+    background-color: #fafafa;
+    padding: 0px;
+    
+  }
+  
+  .popup-content h2 {
+    margin-top: 0;
+  }
+  
+  .popup-content label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .popup-content input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .popup-content button {
+    display: block; /* Make the button a block element */
+    margin: 8px auto; /* Center the button horizontally */
+    font-size: 18px;
+    padding: 8px 30px;
+    font-family: HennyPenny;
+    font-weight: 900;
+    border-radius:10px;
+    border:#3C254D 1px solid;
+    background-color: #3C254D;
+    color: #fafafa;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 10px;
+  }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 14, 53, 0.315);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background-color: #fafafa;
+    padding: 20px;
+    max-width: 300px;
+    max-height: 230px;
+    border-radius: 8px;
+  }
+  
+  .modal-overlay object {
+    width: 100%;
+    height: 100%;
+  }
+  .close-button {
+    position: absolute !important;
+    top: -8px !important;
+    right: 0px !important;
+    font-size: 24px !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    color:#000 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    padding: 0px !important;
+  }
+  
+  .close-button:focus {
+    outline: none;
+  }
+  
